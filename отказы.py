@@ -149,8 +149,12 @@ for number in numbers:
     ext = 'json'
     fname = f'{path_well_done}\\{number}.{ext}'
 
-    with open(fname, 'w') as f:
-        f.write(json.dumps(data_number, indent=2, ensure_ascii=False))
+    try:
+        with open(fname, 'w') as f:
+            f.write(json.dumps(data_number, indent=2, ensure_ascii=False))
+    except:
+        with open(fname, 'w', encoding="utf-8") as f:
+            f.write(json.dumps(data_number, indent=2, ensure_ascii=False))
 
     # записываем номер пакета в файл
     ext = 'txt'
