@@ -32,7 +32,10 @@ def xml_parser(url_xml):
     root_node = ET.parse(xml_file).getroot()
     name = root_node.find(".//name").text
     reason = root_node.find(".//reasons").text
-    text = root_node.find(".//text").text
+    try:
+        text = root_node.find(".//text").text
+    except:
+        text = 'неизвестно'
     return name, reason, text
 
 
